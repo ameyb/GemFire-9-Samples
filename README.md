@@ -1,5 +1,5 @@
-# Gemfire-WS
-Gemfire workshop
+# GemFire-9-Samples
+GemFire Sample Code
 
 ###### Build and Install Domain 
 
@@ -9,7 +9,7 @@ mvn clean package
 mvn install
 ```
 
-###### Build Gemfire-WS root project
+###### Build GemFire-9-Samples root project
 
 ```
 mvn clean package
