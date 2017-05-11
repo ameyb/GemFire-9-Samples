@@ -1,0 +1,63 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>io.pivotal.gemfire</groupId>
+  <artifactId>Gemfire-Data-Load</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Gemfire-Data-Load</name>
+  <description>Gemfire data load</description>
+
+  <properties>
+	 <app.mainClass>io.pivotal.gemfire.load.GemfireBulkLoader</app.mainClass>
+	 <gemfire.version>9.0.4</gemfire.version>
+  	</properties>
+
+   	<dependencies>
+		<dependency>
+	      <groupId>io.pivotal.gemfire</groupId>
+	      <artifactId>geode-core</artifactId>
+	      <version>${gemfire.version}</version>
+   		</dependency>
+	    <dependency>
+			<groupId>io.pivotal.gemfire</groupId>
+			<artifactId>Domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.supercsv</groupId>
+			<artifactId>super-csv-dozer</artifactId>
+			<version>2.2.0</version>
+        </dependency>
+    </dependencies>
+
+    <repositories>
+         <repository>
+	       <id>gemfire-release-repo</id>
+	       <name>Pivotal GemFire Release Repository</name>
+	       <url>https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire</url>
+   		</repository>
+        <repository>
+			<id>spring-release</id>
+			<url>http://repo.springsource.org/release/</url>
+		</repository>
+    </repositories>
+
+    <build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.4.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<mainClass>${app.mainClass}</mainClass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
